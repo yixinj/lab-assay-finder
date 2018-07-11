@@ -1,0 +1,29 @@
+<section id="input">
+
+
+    <form class="example-form">
+
+        <mat-form-field id="form-field">
+
+
+
+            <input matInput placeholder="Antibody Name" aria-label="Antibody" [matAutocomplete]="auto" [formControl]="antibodyCtrl">
+
+
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let antibody of filteredAntibodies | async" (onSelectionChange)="onChange(antibody.id, $event)" [value]="antibody.name">
+
+                    <!-- <img class="example-option-img" aria-hidden [src]="antibody.image" height="25"> -->
+                    <span>{{antibody.name}}</span> |
+                    <small>{{antibody.acronym}}</small>
+
+                </mat-option>
+            </mat-autocomplete>
+
+
+        </mat-form-field>
+        <!-- Spinner activate while loading -->
+        <mat-spinner [diameter]="30" *ngIf="loading === true"></mat-spinner>
+        <a mat-raised-button color="primary" (click)="onSubmit()" id="submit-button" routerLink="/detail/{{this.dataService.getId()}}">Submit</a>
+    </form>
+</section>

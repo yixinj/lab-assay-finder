@@ -1,0 +1,30 @@
+#input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+#form-field {
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0 10px 0;
+}
+
+mat-spinner {
+    overflow: hidden;
+}
+
+.example-option-img {
+    vertical-align: middle;
+}
+
+#submit-button {
+    margin-top: 10px;
+}
