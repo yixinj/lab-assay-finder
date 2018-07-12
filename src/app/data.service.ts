@@ -4,12 +4,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, interval, pipe } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 
+import { AntibodyFull } from './antibody-full';
+
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   // Selected antibody
   currentId: number;
+  currentAntibody: AntibodyFull;
 
   constructor(private http: HttpClient) {
     // this.loadData();
@@ -41,8 +44,5 @@ export class DataService {
   //     error => console.log(error));
   // }
 
-  // Sends out currentId to the database to retrieve new info
-  public sendInfo(): void {
 
-  }
 }

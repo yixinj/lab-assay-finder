@@ -31,7 +31,7 @@ export class InputFormComponent implements OnInit {
 
   onSubmit() {  // TODO: post
     console.log('Submit pressed.');
-    this.dataService.sendInfo();
+    // this.dataService.sendInfo();
   }
 
   load() {  // Loads data for antibodies
