@@ -1,11 +1,13 @@
-<div *ngIf="antibody === undefined">
-    <mat-spinner></mat-spinner>
-</div>
+<body>
+    <div *ngIf="antibody === undefined">
+        <mat-spinner></mat-spinner>
+    </div>
 
-<section *ngIf="antibody">
-    <h1>{{antibody.name}}</h1>
-    <h2>{{antibody.acronym}}</h2>
-    <p>{{antibody.description}}</p>
-</section>
-<button mat-raised-button (click)="goBack()">
+    <section *ngIf="antibody">
+        <h1>{{antibody.name}}</h1>
+        <h2 *ngIf="this.settingsService.acronym">{{antibody.acronym}}</h2>
+        <p *ngIf="this.settingsService.description">{{antibody.description}}</p>
+    </section>
+</body>
+<button id="back-button" mat-raised-button (click)="goBack()">
     Back</button>

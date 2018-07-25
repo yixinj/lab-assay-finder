@@ -1,0 +1,11 @@
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#back-button {
+    display: block;
+    margin: auto;
+}

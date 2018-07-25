@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
 import { DataService } from '../data.service';
+import { SettingsService } from '../settings.service';
 import { AntibodyFull } from '../antibody-full';
 import { concat } from '../../../node_modules/rxjs';
 
@@ -18,6 +19,7 @@ export class DisplayComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
+    private settingsService: SettingsService,
     private route: ActivatedRoute,
     private location: Location,
     private http: HttpClient,

@@ -1,0 +1,16 @@
+#settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#settings-expansion {
+    width: 250px;
+    margin: auto;
+    margin-top: 25px;
+}
+
+#settings-expansion mat-panel-title {
+    font-size: 1.2em;
+}
