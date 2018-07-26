@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { DataService } from '../data.service';
 import { SettingsService } from '../settings.service';
-import { AntibodyFull } from '../antibody-full';
+import { MoleculeFull } from '../molecule-full';
 import { concat } from '../../../node_modules/rxjs';
 
 @Component({
@@ -15,7 +15,7 @@ import { concat } from '../../../node_modules/rxjs';
 })
 export class DisplayComponent implements OnInit {
   id: number; // id of antibody
-  antibody: AntibodyFull; // The actual antibody info
+  molecule: MoleculeFull; // The actual antibody info
 
   constructor(
     private dataService: DataService,
@@ -26,10 +26,10 @@ export class DisplayComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getAntibody();
+    this.getMolecule();
   }
 
-  getAntibody(): void {
+  getMolecule(): void {
     this.id = +this.route.snapshot.paramMap.get('id');
     this.sendInfo();
   }
@@ -46,12 +46,12 @@ export class DisplayComponent implements OnInit {
     const posted = { id: this.id };
     // POST TO SERVER
     this.http.post<any>(
-      'http://antibodies.immunohub.net/get_info.php',
+      'http://molecules.immunohub.net/get_molecule_info.php',
       posted,
     ).subscribe(
       res => {
-        this.antibody = res as AntibodyFull; // OKAY this is completed and gives an AntibodyFull
-        console.log('RESULT: ', this.antibody);
+        this.molecule = res as MoleculeFull; // OKAY this is completed and gives an AntibodyFull
+        console.log('RESULT: ', this.molecule);
       }
     );
   }

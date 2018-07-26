@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sqm": {
+    "molecule-query": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sqm",
+            "outputPath": "dist/molecule-query",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sqm:build"
+            "browserTarget": "molecule-query:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sqm:build:production"
+              "browserTarget": "molecule-query:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sqm:build"
+            "browserTarget": "molecule-query:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "sqm-e2e": {
+    "molecule-query-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "sqm:serve"
+            "devServerTarget": "molecule-query:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "sqm:serve:production"
+              "devServerTarget": "molecule-query:serve:production"
             }
           }
         },
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "sqm"
+  "defaultProject": "molecule-query"
 }

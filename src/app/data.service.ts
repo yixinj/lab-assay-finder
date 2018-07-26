@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, interval, pipe } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 
-import { AntibodyFull } from './antibody-full';
+import { MoleculeFull } from './molecule-full';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ import { AntibodyFull } from './antibody-full';
 export class DataService {
   // Selected antibody
   currentId: number;
-  currentAntibody: AntibodyFull;
+  currentAntibody: MoleculeFull;
 
   constructor(private http: HttpClient) {
     // this.loadData();
@@ -29,7 +29,7 @@ export class DataService {
   }
 
   public getJSON(): Observable<any> {
-    return this.http.get('http://antibodies.immunohub.net/get_list.php')
+    return this.http.get('http://molecules.immunohub.net/get_molecule_list.php')
       .pipe(map((res: any) => res));
     // return this.http.get('http://antibodies.immunohub.net/get.php');
   }

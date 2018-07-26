@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+
 import { DataService } from '../data.service';
-import { Antibody } from '../antibody';
+
+import { Molecule } from '../molecule';
 
 @Component({
   selector: 'app-input-form',
@@ -14,11 +16,11 @@ import { Antibody } from '../antibody';
 export class InputFormComponent implements OnInit {
   loading = false;
   // Filter stuff
-  antibodyCtrl = new FormControl();
-  filteredAntibodies: Observable<Antibody[]>;
+  moleculeCtrl = new FormControl();
+  filteredMolecules: Observable<Molecule[]>;
 
   // Empty antibodies list for now
-  antibodies: Antibody[] = [];
+  molecules: Molecule[] = [];
 
   onChange(selectedId: number, evt: any) {
     // I HAVE NO IDEA WHAT evt does but it works lol (corresponds to $event)
@@ -29,7 +31,8 @@ export class InputFormComponent implements OnInit {
     }
   }
 
-  onSubmit() {  // TODO: post
+  onSubmit() {
+    // The work is all done in the TEMPLATE.
     console.log('Submit pressed.');
     // this.dataService.sendInfo();
   }
@@ -40,8 +43,8 @@ export class InputFormComponent implements OnInit {
       this.loading = true;
 
       // console.log(data);
-      this.antibodies = data as Antibody[]; // Stores as Antibodies
-      console.log(this.antibodies);
+      this.molecules = data as Molecule[]; // Stores as Antibodies
+      console.log(this.molecules);
       this.initFilter();
       this.loading = false;
     },
@@ -50,10 +53,10 @@ export class InputFormComponent implements OnInit {
 
   // Initializes autocomplete filter. Used to be in constructor.
   initFilter() {
-    this.filteredAntibodies = this.antibodyCtrl.valueChanges
+    this.filteredMolecules = this.moleculeCtrl.valueChanges
       .pipe(
         startWith(''),
-        map(state => state ? this._filterStates(state) : this.antibodies.slice())
+        map(state => state ? this._filterStates(state) : this.molecules.slice())
       );
   }
 
@@ -67,8 +70,8 @@ export class InputFormComponent implements OnInit {
   }
 
   // FILTER STUFF
-  private _filterStates(value: string): Antibody[] {
+  private _filterStates(value: string): Molecule[] {
     const filterValue = value.toLowerCase();
-    return this.antibodies.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
+    return this.molecules.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
   }
 }
