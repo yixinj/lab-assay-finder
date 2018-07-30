@@ -1,13 +1,57 @@
-<body>
-    <div *ngIf="antibody === undefined">
+<!-- <body>
+    <div *ngIf="molecules === undefined">
         <mat-spinner></mat-spinner>
     </div>
 
-    <section *ngIf="antibody">
-        <h1>{{antibody.name}}</h1>
-        <h2 *ngIf="this.settingsService.acronym">{{antibody.acronym}}</h2>
-        <p *ngIf="this.settingsService.description">{{antibody.description}}</p>
+    <section *ngIf="molecules">
+        <div class="molecule-entry" *ngFor="let molecule of molecules">
+            <h1>{{molecule.id}} {{molecule.molecule_name}}</h1>
+            <h2>{{molecule.institution_name}}</h2>
+            <p>{{molecule.clone_name}}</p>
+        </div>
     </section>
-</body>
-<button id="back-button" mat-raised-button (click)="goBack()">
-    Back</button>
+</body> -->
+<div id="display">
+    <h1 id="display--title">{{molecule_name}}</h1>
+    <mat-form-field id="display--filter">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+
+    <section id="display--table">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="institution_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Institution Name </th>
+                <td mat-cell *matCellDef="let row"> {{row.institution_name}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="clone_name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Clone Name </th>
+                <td mat-cell *matCellDef="let row"> {{row.clone_name}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+        </table>
+
+        <!-- Loading spinner -->
+        <div id="display--spinner" *ngIf="molecules === undefined">
+            <mat-spinner></mat-spinner>
+        </div>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </section>
+
+    <section id="display--back-button">
+        <button mat-raised-button (click)="goBack()">
+            Back</button>
+    </section>
+</div>

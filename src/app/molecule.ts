@@ -1,4 +1,4 @@
 export interface Molecule {
     id: number;
-    name: string;
+    molecule_name: string;
 }

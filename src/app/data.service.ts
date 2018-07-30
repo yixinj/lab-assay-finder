@@ -11,7 +11,7 @@ import { MoleculeFull } from './molecule-full';
 })
 export class DataService {
   // Selected antibody
-  currentId: number;
+  currentMolecule: string;
   currentAntibody: MoleculeFull;
 
   constructor(private http: HttpClient) {
@@ -19,13 +19,13 @@ export class DataService {
   }
 
   // Function to set the current antibody's id
-  public setId(x: number): void {
-    this.currentId = x;
+  public setMolecule(x: string): void {
+    this.currentMolecule = x;
   }
 
   // Function to get the current antibody's id
-  public getId(): number {
-    return this.currentId;
+  public getMolecule(): string {
+    return this.currentMolecule;
   }
 
   public getJSON(): Observable<any> {
@@ -34,15 +34,9 @@ export class DataService {
     // return this.http.get('http://antibodies.immunohub.net/get.php');
   }
 
-  // public loadData() {
-  //   this.getJSON().subscribe(
-  //     data => {
-  //       console.log('Getting data ...');
-  //       console.log(data);
-  //       console.log('Data obtained.');
-  //     },
-  //     error => console.log(error));
-  // }
-
+  public postJSON(posted): Observable<any> {
+    return this.http.post<any>(
+      'http://molecules.immunohub.net/get_molecule_info.php', posted);
+  }
 
 }

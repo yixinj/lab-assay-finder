@@ -1,11 +1,51 @@
-body {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+#display {
+    display: grid;
+    grid-template-columns: 10% auto 10%;
+    grid-template-rows: 10% 10% auto 10%;
 }
 
-#back-button {
-    display: block;
+#display--title {
+    text-align: center;
+    /* margin: auto; */
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+#display--filter {
     margin: auto;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+#display--table {
+    margin: auto;
+    width: 100%;
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+#display--spinner {
+    margin: auto;
+}
+
+#display--back-button {
+    grid-column: 2/3;
+    grid-row: 4/5;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+td,
+th {
+    width: 25%;
 }

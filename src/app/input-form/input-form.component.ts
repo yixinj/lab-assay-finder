@@ -18,16 +18,18 @@ export class InputFormComponent implements OnInit {
   // Filter stuff
   moleculeCtrl = new FormControl();
   filteredMolecules: Observable<Molecule[]>;
+  currentMolecule;
 
-  // Empty antibodies list for now
+  // Empty molecules list for now
   molecules: Molecule[] = [];
 
-  onChange(selectedId: number, evt: any) {
+  onChange(selectedMolecule: string, evt: any) {
     // I HAVE NO IDEA WHAT evt does but it works lol (corresponds to $event)
     if (evt.source.selected) {
       console.log('something changed!');
-      this.dataService.setId(selectedId);
-      console.log('the new selected id is ' + this.dataService.getId());
+      this.currentMolecule = selectedMolecule;
+      this.dataService.setMolecule(selectedMolecule);
+      console.log('the new selected molecule is ' + this.dataService.getMolecule());
     }
   }
 
@@ -37,13 +39,12 @@ export class InputFormComponent implements OnInit {
     // this.dataService.sendInfo();
   }
 
-  load() {  // Loads data for antibodies
+  load() {  // Loads data for molecules
     this.dataService.getJSON().subscribe(data => {
-      console.log('Loading antibodies list ...');
+      console.log('Loading molecules list ...');
       this.loading = true;
 
-      // console.log(data);
-      this.molecules = data as Molecule[]; // Stores as Antibodies
+      this.molecules = data as Molecule[]; // Stores as Molecules
       console.log(this.molecules);
       this.initFilter();
       this.loading = false;
@@ -72,6 +73,6 @@ export class InputFormComponent implements OnInit {
   // FILTER STUFF
   private _filterStates(value: string): Molecule[] {
     const filterValue = value.toLowerCase();
-    return this.molecules.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
+    return this.molecules.filter(state => state.molecule_name.toLowerCase().indexOf(filterValue) === 0);
   }
 }

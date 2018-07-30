@@ -13,7 +13,11 @@ import {
   MatSlideToggleModule,
   MatProgressSpinnerModule,
   MatCheckboxModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatListModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -31,7 +35,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSlideToggleModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   declarations: []
 })

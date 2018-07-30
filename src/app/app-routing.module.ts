@@ -5,9 +5,8 @@ import { DisplayComponent } from './display/display.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: 'home', component: InputFormComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'detail/:id', component: DisplayComponent },
+  { path: '', component: InputFormComponent },
+  { path: 'detail/:molecule_name', component: DisplayComponent },
   { path: '404', component: PageNotFoundComponent },
 
   { path: '**', redirectTo: '404' }
