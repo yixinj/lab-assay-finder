@@ -8,10 +8,25 @@
     margin: auto;
     grid-column: 2/3;
     grid-row: 1/2;
+    display: flex;
+}
+
+#input-textfield mat-form-field {
+    margin: 10px;
+}
+
+:host input.md-input-element {
+    color: red;
+    font-size: 18px;
 }
 
 #input-button-list {
     margin: auto;
     grid-column: 2/3;
     grid-row: 2/3;
+    display: flex;
+}
+
+#input-button-list a {
+    margin: 2px;
 }

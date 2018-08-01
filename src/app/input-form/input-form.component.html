@@ -10,7 +10,7 @@
                     </mat-option>
                 </mat-autocomplete>
             </mat-form-field>
-            <a mat-raised-button color="accent" (click)="onSubmit()" id="submit-button" routerLink="/detail/{{this.currentMolecule}}">Submit</a>
+            <a mat-raised-button color="accent" (click)="onSubmit()" id="submit-button" routerLink="/{{this.currentMolecule}}">Submit</a>
         </form>
     </section>
 
@@ -20,7 +20,7 @@
     <section id="input-button-list">
         <ng-container *ngIf="molecules.length > 0; else elseTemplate">
             <mat-nav-list>
-                <a mat-raised-button *ngFor="let molecule of molecules" routerLink="/detail/{{molecule.molecule_name}}">{{molecule.molecule_name}}</a>
+                <a mat-raised-button *ngFor="let molecule of molecules" routerLink="/{{molecule.molecule_name}}">{{molecule.molecule_name}}</a>
             </mat-nav-list>
         </ng-container>
         <ng-template #elseTemplate>

@@ -6,7 +6,9 @@
 
 #display--title {
     text-align: center;
-    /* margin: auto; */
+    font-size: 3em;
+    font-family: "Roboto Light";
+
     grid-column: 2/3;
     grid-row: 1/2;
 }
