@@ -28,10 +28,9 @@ export class DataService {
     return this.currentMolecule;
   }
 
-  public getJSON(): Observable<any> {
+  public getMoleculeList(): Observable<any> {
     return this.http.get('http://molecules.immunohub.net/get_molecule_list.php')
       .pipe(map((res: any) => res));
-    // return this.http.get('http://antibodies.immunohub.net/get.php');
   }
 
   public postJSON(posted): Observable<any> {

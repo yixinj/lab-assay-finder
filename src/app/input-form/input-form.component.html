@@ -1,12 +1,13 @@
-<section id="input-form-component">
+<div id="input-form-component">
     <section id="input-textfield">
         <form>
             <mat-form-field>
-                <input matInput placeholder="Molecule Name" aria-label="Molecule" [matAutocomplete]="auto" [formControl]="moleculeCtrl">
+                <input matInput placeholder="Molecule Name" aria-label="Molecule" [matAutocomplete]="auto"
+                    [formControl]="moleculeCtrl">
                 <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let molecule of filteredMolecules | async" (onSelectionChange)="onChange(molecule.molecule_name, $event)"
-                        [value]="molecule.molecule_name">
-                        {{molecule.molecule_name}}
+                    <mat-option *ngFor="let molecule of filteredMolecules | async" (onSelectionChange)="onChange(molecule.molName, $event)"
+                        [value]="molecule.molName">
+                        {{molecule.molName}}
                     </mat-option>
                 </mat-autocomplete>
             </mat-form-field>
@@ -14,17 +15,17 @@
         </form>
     </section>
 
-    <!-- <div id="button-list" *ngFor="let molecule of molecules" ng-if="molecules">
+    <!-- <div id="button-list" *ngFor="let molecule of moleculesList" ng-if="moleculesList">
     <a mat-raised-button routerLink="/detail/{{molecule.molecule_name}}">{{molecule.molecule_name}}</a>
 </div> -->
     <section id="input-button-list">
-        <ng-container *ngIf="molecules.length > 0; else elseTemplate">
+        <ng-container *ngIf="moleculesList.length > 0; else elseTemplate">
             <mat-nav-list>
-                <a mat-raised-button *ngFor="let molecule of molecules" routerLink="/{{molecule.molecule_name}}">{{molecule.molecule_name}}</a>
+                <a mat-raised-button *ngFor="let molecule of moleculesList" routerLink="/{{molecule.molName}}">{{molecule.molName}}</a>
             </mat-nav-list>
         </ng-container>
         <ng-template #elseTemplate>
-            <mat-spinner ng-if="molecules === undefined"></mat-spinner>
+            <mat-spinner ng-if="moleculesList === undefined"></mat-spinner>
         </ng-template>
     </section>
-</section>
+</div>

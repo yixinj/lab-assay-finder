@@ -1,7 +1,7 @@
 <div id="display">
-    <h1 id="display--title">{{molecule_name}}</h1>
+    <h1 id="display--title">{{molName}}</h1>
     <mat-form-field id="display--filter">
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" autocomplete="off">
     </mat-form-field>
 
     <section id="display--table">
@@ -13,15 +13,50 @@
             </ng-container>
 
 
-            <ng-container matColumnDef="institution_name">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Institution Name </th>
-                <td mat-cell *matCellDef="let row"> {{row.institution_name}} </td>
+            <ng-container matColumnDef="molName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Molecule Name </th>
+                <td mat-cell *matCellDef="let row"> {{row.molName}} </td>
             </ng-container>
 
 
-            <ng-container matColumnDef="clone_name">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Clone Name </th>
-                <td mat-cell *matCellDef="let row"> {{row.clone_name}} </td>
+            <ng-container matColumnDef="labName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Lab Name </th>
+                <td mat-cell *matCellDef="let row"> {{row.labName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="labLoc">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Lab Location </th>
+                <td mat-cell *matCellDef="let row"> {{row.labLoc}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="labTestName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Lab Test Name </th>
+                <td mat-cell *matCellDef="let row"> {{row.labTestName}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="labClone">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Lab Clone </th>
+                <td mat-cell *matCellDef="let row"> {{row.labClone}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="labComment">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Lab Comment </th>
+                <td mat-cell *matCellDef="let row"> {{row.labComment}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="labLink">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Lab Link </th>
+                <td mat-cell *matCellDef="let row">{{row.labLink}}
+                </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="molSynonym">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Molecule Synonyms </th>
+                <td mat-cell *matCellDef="let row"> {{row.molSynonym}} </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -30,7 +65,7 @@
         </table>
 
         <!-- Loading spinner -->
-        <div id="display--spinner" *ngIf="molecules === undefined">
+        <div id="display--spinner" *ngIf="molList === undefined">
             <mat-spinner></mat-spinner>
         </div>
 

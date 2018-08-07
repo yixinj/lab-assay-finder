@@ -6,7 +6,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const routes: Routes = [
   { path: '', component: InputFormComponent },
-  { path: ':molecule_name', component: DisplayComponent },
+  { path: ':molName', component: DisplayComponent },
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '404' }
 ];
